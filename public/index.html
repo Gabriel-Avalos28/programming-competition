@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programming Competition</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.10/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.10/mode/clike/clike.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.10/codemirror.min.css">
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f9; }
+        header { background-color: #0073e6; color: white; padding: 1rem; text-align: center; }
+        .nav { display: flex; justify-content: center; gap: 1rem; margin-top: 1rem; }
+        .nav button { padding: 0.5rem 1rem; cursor: pointer; background-color: #0073e6; color: white; border: none; border-radius: 5px; }
+        .nav button.active { background-color: #005bb5; }
+        .section { display: none; padding: 2rem; }
+        .section.active { display: block; }
+        .editor { border: 1px solid #ddd; border-radius: 4px; height: 300px; margin-top: 1rem; }
+        button { background-color: #0073e6; color: white; border: none; padding: 0.5rem 1rem; margin-top: 1rem; cursor: pointer; }
+        pre { background: #f4f4f9; padding: 1rem; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Programming Competition</h1>
+    </header>
+
+    <div class="nav">
+        <button id="btn-queues" class="active">Queues</button>
+        <button id="btn-stacks">Stacks</button>
+    </div>
+
+    <!-- Sección Queues -->
+    <div id="queues-section" class="section active">
+        <h2>Queues Exercises</h2>
+
+        <!-- Ejercicio 1 -->
+        <div>
+            <h3>Exercise 1</h3>
+            <p>Cree un programa en donde el usuario deberá ingresar la longitud de una palabra para posteriormente ingresar carácter por carácter hasta imprimirla.</p>
+            <div id="editor-queues-1" class="editor"></div>
+            <textarea id="input-queues-1" placeholder="Ingresa los datos de entrada..." style="width: 100%; height: 80px; margin-top: 10px;"></textarea>
+            <button id="run-queues-1">Run Code</button>
+            <pre id="output-queues-1"></pre>
+        </div>
+
+        <!-- Ejercicio 2 -->
+        <div>
+            <h3>Exercise 2</h3>
+            <p>Un hospital maneja colas de prioridad para atender a los pacientes según su nivel de emergencia.</p>
+            <div id="editor-queues-2" class="editor"></div>
+            <textarea id="input-queues-2" placeholder="No se requiere entrada adicional..." style="width: 100%; height: 80px; margin-top: 10px;"></textarea>
+            <button id="run-queues-2">Run Code</button>
+            <pre id="output-queues-2"></pre>
+        </div>
+
+        <!-- Ejercicio 3 -->
+        <div>
+            <h3>Exercise 3</h3>
+            <p>Lotería de números: Comparar un boleto generado con el boleto ganador para calcular el premio.</p>
+            <div id="editor-queues-3" class="editor"></div>
+            <textarea id="input-queues-3" placeholder="No se requiere entrada adicional..." style="width: 100%; height: 80px; margin-top: 10px;"></textarea>
+            <button id="run-queues-3">Run Code</button>
+            <pre id="output-queues-3"></pre>
+        </div>
+
+        <!-- Ejercicio 4 -->
+        <div>
+            <h3>Exercise 4</h3>
+            <p>
+                Trabajas en un cine con <b>n</b> asientos disponibles. Cada cliente compra un número específico de boletos y, si no hay suficientes asientos, se va. 
+                Ingresa la capacidad de asientos en el cuadro de texto.
+            </p>
+            <div id="editor-queues-4" class="editor"></div>
+            <textarea id="input-queues-4" placeholder="Ingresa la capacidad de la sala..." style="width: 100%; height: 80px; margin-top: 10px;"></textarea>
+            <button id="run-queues-4">Run Code</button>
+            <pre id="output-queues-4"></pre>
+        </div>
+    </div>
+
+    <!-- Sección Stacks -->
+    <div id="stacks-section" class="section">
+        <h2>Stacks Exercises</h2>
+
+        <!-- Ejercicio 1 -->
+        <div>
+            <h3>Exercise 1: Juego de Pila de Piedras</h3>
+            <p>
+                Determina si el jugador puede vaciar la pila completamente siguiendo la regla de que cada piedra retirada debe ser igual o menor que la anterior.
+            </p>
+            <div id="editor-stacks-1" class="editor"></div>
+            <textarea id="input-stacks-1" placeholder="Ingresa el número de piedras y los tamaños, ejemplo: &#10;5&#10;1 2 3 4 5" style="width: 100%; height: 80px; margin-top: 10px;"></textarea>
+            <button id="run-stacks-1">Run Code</button>
+            <pre id="output-stacks-1"></pre>
+        </div>
+
+        <!-- Ejercicio 2 -->
+        <div>
+            <h3>Exercise 2: Eliminador de Duplicados</h3>
+            <p>
+                Dada una secuencia de números enteros, elimina todos los números consecutivos duplicados, dejando solo una copia de cada grupo de duplicados consecutivos.
+            </p>
+            <div id="editor-stacks-2" class="editor"></div>
+            <textarea id="input-stacks-2" placeholder="Ingresa la secuencia de números, ejemplo: &#10;8&#10;1 1 2 3 3 4 4 5" style="width: 100%; height: 80px; margin-top: 10px;"></textarea>
+            <button id="run-stacks-2">Run Code</button>
+            <pre id="output-stacks-2"></pre>
+        </div>
+
+        <!-- Ejercicio 3 -->
+        <div>
+            <h3>Exercise 3: Pila de Alturas</h3>
+            <p>
+                Tienes una fila de edificios con alturas representadas por números enteros. Determina cuántos edificios son visibles desde el inicio, sin que un edificio más alto bloquee la vista.
+            </p>
+            <div id="editor-stacks-3" class="editor"></div>
+            <textarea id="input-stacks-3" placeholder="Ingresa el número de edificios y sus alturas, ejemplo: &#10;6&#10;3 7 8 3 6 1" style="width: 100%; height: 80px; margin-top: 10px;"></textarea>
+            <button id="run-stacks-3">Run Code</button>
+            <pre id="output-stacks-3"></pre>
+        </div>
+
+        <!-- Ejercicio 4 -->
+        <div>
+            <h3>Exercise 4: Compactador de Rango</h3>
+            <p>
+                Dada una secuencia de números enteros ordenados, agrúpalos en rangos compactos. Por ejemplo, si los números consecutivos son 1, 2, 3, compáctalos como 1-3. Si un número no tiene consecutivos, debe aparecer por sí mismo.
+            </p>
+            <div id="editor-stacks-4" class="editor"></div>
+            <textarea id="input-stacks-4" placeholder="Ingresa el tamaño y los números ordenados, ejemplo: &#10;7&#10;1 2 3 5 6 8 9" style="width: 100%; height: 80px; margin-top: 10px;"></textarea>
+            <button id="run-stacks-4">Run Code</button>
+            <pre id="output-stacks-4"></pre>
+        </div>
+
+
+
+    </div>
+
+    <script>
+        // Configuración inicial de CodeMirror para Queues
+        const editorQueues1 = CodeMirror(document.getElementById('editor-queues-1'), { value: '', mode: 'text/x-java', lineNumbers: true });
+        const editorQueues2 = CodeMirror(document.getElementById('editor-queues-2'), { value: '', mode: 'text/x-java', lineNumbers: true });
+        const editorQueues3 = CodeMirror(document.getElementById('editor-queues-3'), { value: '', mode: 'text/x-java', lineNumbers: true });
+        const editorQueues4 = CodeMirror(document.getElementById('editor-queues-4'), { value: '', mode: 'text/x-java', lineNumbers: true });
+
+        // Configuración inicial de CodeMirror para Stacks
+        const editorStacks1 = CodeMirror(document.getElementById('editor-stacks-1'), { value: '', mode: 'text/x-java', lineNumbers: true });
+        const editorStacks2 = CodeMirror(document.getElementById('editor-stacks-2'), { value: '', mode: 'text/x-java', lineNumbers: true });
+        const editorStacks3 = CodeMirror(document.getElementById('editor-stacks-3'), { value: '', mode: 'text/x-java', lineNumbers: true });
+        const editorStacks4 = CodeMirror(document.getElementById('editor-stacks-4'), { value: '', mode: 'text/x-java', lineNumbers: true });
+
+        // Alternar entre Queues y Stacks
+        document.getElementById('btn-queues').addEventListener('click', () => {
+            document.getElementById('queues-section').classList.add('active');
+            document.getElementById('stacks-section').classList.remove('active');
+            document.getElementById('btn-queues').classList.add('active');
+            document.getElementById('btn-stacks').classList.remove('active');
+        });
+
+        document.getElementById('btn-stacks').addEventListener('click', () => {
+            document.getElementById('stacks-section').classList.add('active');
+            document.getElementById('queues-section').classList.remove('active');
+            document.getElementById('btn-stacks').classList.add('active');
+            document.getElementById('btn-queues').classList.remove('active');
+        });
+
+        // Función para ejecutar el código
+        async function runCode(editor, inputId, outputId) {
+            const code = editor.getValue();
+            const input = document.getElementById(inputId).value;
+            const outputElement = document.getElementById(outputId);
+
+            if (!code.trim()) {
+                outputElement.textContent = 'Error: El código no puede estar vacío.';
+                return;
+            }
+
+            outputElement.textContent = 'Ejecutando...';
+            try {
+                const response = await fetch('/run', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ code, input })
+                });
+                const result = await response.json();
+                outputElement.textContent = result.success ? result.output : 'Error: ' + result.error;
+            } catch (err) {
+                outputElement.textContent = 'Error en el servidor: ' + err.message;
+            }
+        }
+
+        // Asociar los botones con sus respectivas funciones de ejecución
+        document.getElementById('run-queues-1').addEventListener('click', () => runCode(editorQueues1, 'input-queues-1', 'output-queues-1'));
+        document.getElementById('run-queues-2').addEventListener('click', () => runCode(editorQueues2, 'input-queues-2', 'output-queues-2'));
+        document.getElementById('run-queues-3').addEventListener('click', () => runCode(editorQueues3, 'input-queues-3', 'output-queues-3'));
+        document.getElementById('run-queues-4').addEventListener('click', () => runCode(editorQueues4, 'input-queues-4', 'output-queues-4'));
+
+        document.getElementById('run-stacks-1').addEventListener('click', () => runCode(editorStacks1, 'input-stacks-1', 'output-stacks-1'));
+        document.getElementById('run-stacks-2').addEventListener('click', () => runCode(editorStacks2, 'input-stacks-2', 'output-stacks-2'));
+        document.getElementById('run-stacks-3').addEventListener('click', () => runCode(editorStacks3, 'input-stacks-3', 'output-stacks-3'));
+        document.getElementById('run-stacks-4').addEventListener('click', () => runCode(editorStacks4, 'input-stacks-4', 'output-stacks-4'));
+        
+
+        
+    </script>
+</body>
+</html>
